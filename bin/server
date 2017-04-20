@@ -6,11 +6,20 @@ require 'thor'
 class App < Thor
   desc 'start server', ''
   def start
-    RslServer::Socket.new
+    options = {
+      daemonize: true,
+      logfile: './log/server.log',
+      pidfile: './tmp/rsl.pid',
+      quit_delay: 3
+    }
+    RslServer::Daemon.new(options).run! do |daemon|
+      RslServer::Socket.new.run!(daemon)
+    end
   end
 
   desc 'stop server', ''
   def stop
+
   end
 
   desc 'restart server', ''
@@ -19,3 +28,4 @@ class App < Thor
 end
 
 App.start
+

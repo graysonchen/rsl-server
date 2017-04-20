@@ -22,9 +22,26 @@ Or install it yourself as:
 
 ## Usage
 
+### DB
+
+```
+psql -c 'create user eic_admin rsl_server;'
+vim .env
+
+```
+
+```
+rake db:migrate
+```
+
 ### start server
 ```
 ./bin/server start
+```
+
+```
+sequel -m migrations postgres://localhost/rsl_server
+
 ```
 
 TODO: Write usage instructions here
