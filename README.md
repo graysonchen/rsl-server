@@ -22,6 +22,24 @@ Or install it yourself as:
 
 ## Usage
 
+### client
+Gemfile
+
+```
+gem 'remote_syslog_logger'
+
+```
+
+vim config/application.rb
+
+```
+    config.logger = RemoteSyslogLogger.new('localhost',
+                                           41346,
+                                           program: "qiangda-#{Rails.env}")
+
+```
+
+
 ### DB
 
 ```
@@ -43,6 +61,10 @@ rake db:migrate
 sequel -m migrations postgres://localhost/rsl_server
 
 ```
+
+### Demo
+
+![Server Demo](doc/FwVNGBoKKG.gif)
 
 TODO: Write usage instructions here
 
