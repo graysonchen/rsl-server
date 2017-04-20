@@ -22,7 +22,8 @@ Or install it yourself as:
 
 ## Usage
 
-### client
+## Client
+
 Gemfile
 
 ```
@@ -39,27 +40,24 @@ vim config/application.rb
 
 ```
 
+## Server
 
 ### DB
 
 ```
-psql -c 'create user eic_admin rsl_server;'
+psql -c 'create database rsl_server;'
 vim .env
 
 ```
 
 ```
+cp .env.example .env
 rake db:migrate
 ```
 
 ### start server
 ```
 ./bin/server start
-```
-
-```
-sequel -m migrations postgres://localhost/rsl_server
-
 ```
 
 ### Demo
