@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+require "bundler/setup"
+require "rsl-server"
+require 'thor'
+
+class App < Thor
+  desc 'start server', ''
+  def start
+    RslServer::Socket.new
+  end
+
+  desc 'stop server', ''
+  def stop
+  end
+
+  desc 'restart server', ''
+  def restart
+  end
+end
+
+App.start
