@@ -1,0 +1,20 @@
+</!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="/faye.js"> </script>
+    <script type="text/javascript">
+      var faye_server = "<%=ENV['FAYE_SERVER']%>";
+      var client = new Faye.Client(faye_server);
+      var subscription = client.subscribe('/browser', function(message) {
+        console.log(message);
+        var d1 = document.getElementById('main');
+        d1.insertAdjacentHTML('beforeend', '<div>' + message + '</div>');
+        d1.scrollTop = d1.scrollHeight;
+      });
+    </script>
+</head>
+<body id="main">
+</body>
+</html>

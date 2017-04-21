@@ -8,3 +8,7 @@ gem 'sequel'
 gem 'sequel_pg'
 gem 'dotenv'
 gem 'pry'
+gem 'sinatra'
+gem "faye"
+gem 'puma'
+gem 'permessage_deflate'
